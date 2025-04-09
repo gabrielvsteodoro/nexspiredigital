@@ -392,6 +392,7 @@ header {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
     color: white;
+    margin: 5px 5px;
 }
 
 .member-card:hover {
@@ -409,7 +410,13 @@ header {
 
 .member-card h3 {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    color: #92fffb;
+}
+
+.member-card h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
     color: #00d4ff;
 }
 
@@ -417,6 +424,25 @@ header {
     font-size: 0.9em;
     line-height: 1.5;
 }
+
+#member-card-cofundador {
+    width: 280px;
+}
+
+.linha-cima {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+  
+  .linha-baixo {
+    display: flex;
+    justify-content: center;
+    margin-top: -230px;
+    width: 100%;
+  }
+  
 
 .logo-card {
     background: none;
@@ -449,7 +475,7 @@ header {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 990px) {
     .team-container {
         flex-direction: column;
         align-items: center;
@@ -458,9 +484,16 @@ header {
     .member-card {
         width: 90%;
     }
+
+    .linha-baixo {
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+        width: 100%;
+      }
 }
 
-@media (max-width: 959px) {
+@media (max-width:1069px) {
     .team-container {
         flex-direction: column;
         align-items: center;
@@ -469,6 +502,12 @@ header {
     .member-card {
         width: 90%;
     }
+    .linha-baixo {
+        display: flex;
+        justify-content: center;
+        margin-top: 0px;
+        width: 100%;
+      }
 }
 
 
