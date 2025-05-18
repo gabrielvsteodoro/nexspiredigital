@@ -650,6 +650,67 @@ header {
     font-size: 1.05em;
 }
 
+/* Botão WhatsApp*/
+
+  .whatsapp-wrapper {
+    position: fixed;
+    bottom: 34px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    text-decoration: none;
+  }
+
+  .whatsapp-text {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 14px 12px;
+    border-radius: 25px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .whatsapp-icon {
+    background-color: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .whatsapp-wrapper:hover .whatsapp-icon {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+
+    .whatsapp-icon {
+      width: 60px;
+      height: 60px;    
+    }
+
+    .whatsapp-icon img {
+        width: 30px !important;
+        height: 30px !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain;
+        display: block;
+    }
+  }
 
 /* Rodapé */
 footer {
