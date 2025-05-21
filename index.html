@@ -30,47 +30,63 @@
             <li><a href="#servicos" onclick="document.getElementById('menu-toggle').checked = false">Serviços</a></li>
             <li><a href="#nosso-time" onclick="document.getElementById('menu-toggle').checked = false">Equipe</a></li>
             <li><a href="#sobre-nos" onclick="document.getElementById('menu-toggle').checked = false">Sobre</a></li>
-            
           </ul>
         </nav>
       </header>
       
     <main>
-        <section id="home" class="home">
-            <h1 class="fade-in delay-1">Bem-vindo à</h1>
-            <h1 class="brand-name fade-in delay-2">Nexspire Digital</h1>
-            <p class="fade-in delay-3">Inovamos com tecnologia para transformar ideias em soluções digitais reais.</p>
-            <a href="#servicos" class="btn fade-in delay-4">Conheça nossos serviços</a>
-        
-            <div class="background-images">
-              <img src="/imgs/home-tech-girl.png" style="top: 10%; left: 5%;">
-              <img src="/imgs/lampada-tech.png" style="top: 25%; right: 10%;">
-              <img src="/imgs/brain-tech.png" style="bottom: 5%; left: 12%;">
-              <img src="/imgs/computer-girl.png" style="bottom: -5%; right: 5%;">
-            </div>
-          </section>
+<section id="home" class="home">
+  <h1 class="fade-in delay-1">Bem-vindo à</h1>
+
+<h1 class="brand-name fade-in delay-2 typing">
+  <span id="word1" class="word"></span> <span id="word2" class="word"></span>
+</h1>
+
+  <p class="fade-in delay-3">Inovamos com tecnologia para transformar ideias em soluções digitais reais.</p>
+  <a href="#servicos" class="btn fade-in delay-4">Conheça nossos serviços</a>
+
+  <div class="background-images">
+    <img src="/imgs/home-tech-girl.png" style="top: 10%; left: 5%;">
+    <img src="/imgs/lampada-tech.png" style="top: 25%; right: 10%;">
+    <img src="/imgs/brain-tech.png" style="bottom: 5%; left: 12%;">
+    <img src="/imgs/computer-girl.png" style="bottom: -5%; right: 5%;">
+  </div>
+</section>
 
 
-        <section id="servicos">
-            <h2>Nossos Serviços</h2>
-            <div class="cards-container">
-              <div class="card">
-                <h3>🌐 Criação de Sites</h3>
-                <p>Destaque-se online com um site incrível e personalizado! Ideal para mostrar sua marca com estilo e eficiência.</p>
-                <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeon3qQv1tOb65lp5p80yipA581G9iomXa6y65zJ4i2-bRKow/viewform?usp=dialog', '_blank')">Quero meu site</button>
-              </div>
-              <div class="card">
-                <h3>📱 Aplicativos Mobile</h3>
-                <p>Leve sua ideia para o bolso dos clientes com um app moderno e funcional! Desenvolvemos aplicativos para Android e iOS.</p>
-                <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfYgKaBdyPSNNvMu-yFrCSUgt059tlL2oeYRCzcClfVytwguA/viewform?usp=dialog', '_blank')">Quero meu App</button>
-              </div>
-              <div class="card">
-                <h3>📢 Tráfego Pago</h3>
-                <p>Apareça para as pessoas certas e aumente suas vendas! Campanhas no Google e redes sociais com alta conversão.</p>
-                <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfZjMn7tBasyafuQ9WI-JetW6okIcbS5kYxnTZC347Ir5xJTg/viewform?usp=dialog', '_blank')">Impulsionar meu negócio</button>
-              </div>
-            </div>
-          </section>
+
+<section id="servicos">
+  <h2>Nossos Serviços</h2>
+  <div class="carousel">
+    <div class="card-container">
+      <div class="card active">
+        <div class="card-image" style="background-image: url('/imgs/img-Servicos-2.jfif');"></div>
+        <div class="content">
+          <h3>📱 Aplicativos Mobile</h3>
+          <button onclick="abrirProjeto('app')">Fazer Orçamento</button>
+          <button class="orcamento-btn">Ver Projetos</button> <!-- NOVO -->
+        </div>
+      </div>
+      <div class="card left">
+        <div class="card-image" style="background-image: url('/imgs/img-Servicos-1.jfif');"></div>
+        <div class="content">
+          <h3>🌐 Criação de Sites</h3>
+          <button onclick="abrirProjeto('site')">Fazer Orçamento</button>
+          <button class="orcamento-btn">Ver Projetos</button> <!-- NOVO -->
+        </div>
+      </div>
+      <div class="card right">
+        <div class="card-image" style="background-image: url('/imgs/img-Servicos-3.jfif');"></div>
+        <div class="content">
+          <h3>📢 Tráfego Pago</h3>
+          <button onclick="abrirProjeto('trafego')">Fazer Orçamento</button>
+          <button class="orcamento-btn">Ver Projetos</button> <!-- NOVO -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
           
         
           <section id="nosso-time">

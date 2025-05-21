@@ -34,6 +34,21 @@ header {
     padding: 20px 50px;
     background-color: #0a0f1e;
   }
+
+  header {
+  animation: slideDown 0.7s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
   
   .logo {
     display: flex;
@@ -47,6 +62,15 @@ header {
     margin-right: 10px;
     border-radius: 100%;
   }
+
+  .logo img {
+  transition: transform 0.5s ease;
+}
+
+.logo img:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
   
   nav ul {
     list-style: none;
@@ -69,16 +93,18 @@ header {
     padding: 5px 0;
   }
   
-  nav ul li a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 2px;
-    background-color: #00d4ff;
-    transition: width 0.3s ease;
-  }
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, #1bffff);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 5px #00d4ff, 0 0 10px #00d4ff;
+}
+
   
   nav ul li a:hover {
     color: #00d4ff;
@@ -111,7 +137,36 @@ header {
     background: #fff;
     border-radius: 2px;
     transition: 0.3s ease;
+    transform-origin: center;
   }
+
+  /* Transformar em X quando menu está aberto */
+.menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+  .hamburger span {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.menu-toggle:checked ~ .hamburger span {
+  animation: none;
+}
+
   
   /* Menu Mobile */
   @media (max-width: 768px) {
@@ -234,6 +289,7 @@ header {
     z-index: -1;
 }
 
+
 /* Animações */
 .fade-in {
     opacity: 0;
@@ -285,83 +341,255 @@ header {
     }
 }
 
+.typing .word {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  min-width: 1ch; /* garante espaço para o cursor */
+}
 
-/* Seção Serviços */
+.typing .word::after {
+  content: "|";
+  margin-left: 4px;
+  animation: blink 0.7s step-end infinite;
+  opacity: 0;
+}
+
+.typing .word.typing-active::after {
+  opacity: 1;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .typing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .typing .word {
+    margin: 5px 0;
+  }
+}
+
+.typing .word::after {
+  content: "|";
+  margin-left: 4px;
+  animation: blink 0.7s step-end infinite;
+  opacity: 0;
+}
+
+.typing .word.typing-active::after {
+  opacity: 1;
+}
+
+.typing .word.finished::after {
+  content: none; /* remove completamente o cursor */
+}
+
+
+/* SEÇÃO SERVIÇOS */
+
 #servicos {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #0f1c2e, #1e2f47);
-    color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #0f1c2e, #1e2f47);
 }
 
 #servicos h2 {
-    font-size: 48px;
-    margin-bottom: 40px;
-    color: #ffffff;
+  font-size: 42px;
+  margin-bottom: 60px;
 }
 
-.cards-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 60px;
+.carousel {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-container {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.6s ease;
 }
 
 .card {
-    background-color: #1c2b45;
-    padding: 30px 10px;
-    border-radius: 20px;
-    width: 400px;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
+  width: 280px;
+  height: 500px; /* Tamanho fixo e não achatado */
+  background-color: #0f1c2e;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+  transition: transform 0.5s ease, z-index 0.5s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  transform: scale(1.1); /* Card centralizado cresce ao passar o mouse */
+  z-index: 10;
 }
 
-.card h3 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    color: #00d4ff;
+.card.active {
+  transform: scale(1) rotateY(0);
+  opacity: 1;
+  z-index: 10;
+  margin-bottom: 50px;
 }
 
-.card p {
-    font-size: 1em;
-    margin-bottom: 20px;
-    color: #e0e0e0;
+.card.left, .card.right {
+  transform: scale(0.9); /* Cards à esquerda e à direita com escala reduzida */
+}
+
+.card-image {
+  height: 70%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card .content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card .content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #00d4ff;
 }
 
 .card button {
-    background-color: #00d4ff;
-    color: #0f1c2e;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #00d4ff;
+  color: #0f1c2e;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .card button:hover {
-    background-color: #00a7cc;
-    color: #ffffff;
+  background: #00a7cc;
+  color: white;
 }
 
-/* Responsivo */
-@media (max-width: 900px) {
-    .cards-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-    }
+.card .orcamento-btn {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border: 2px solid #00d4ff;
+  background: transparent;
+  color: #00d4ff;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
 }
+
+.card .orcamento-btn:hover {
+  background: #00d4ff;
+  color: #0f1c2e;
+}
+
+.carousel-controls {
+  margin-top: 30px;
+}
+
+.carousel-controls button {
+  background: #00d4ff;
+  color: #0f1c2e;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.carousel-controls button:hover {
+  background: #00a7cc;
+  color: white;
+}
+
+/* --- Ajustes gerais --- */
+.carousel {
+  perspective: none; /* tirar perspectiva no mobile para evitar efeito estranho */
+  overflow: visible; /* no desktop continua overflow hidden, mas no mobile vamos controlar */
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .carousel {
+    overflow: hidden; /* Removendo o overflow para não aparecer a barra de scroll */
+  }
+
+  .card-container {
+    flex-direction: row !important; /* Mantém os cards na linha */
+    overflow: hidden; /* Remove o scroll visível */
+    padding: 0 15vw; /* Espaço para as bordas dos cards laterais */
+    gap: 20px;
+  }
+
+  .card {
+    flex: 0 0 70vw; /* Cada card ocupa 70% da largura da tela */
+    scroll-snap-align: center;
+    opacity: 0.6 !important;
+    transform: scale(0.85) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    cursor: grab;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .card.active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    cursor: grabbing;
+    z-index: 10;
+  }
+
+  /* Estilo de perspectiva dos cards laterais */
+  .card.left {
+    transform: rotateY(25deg) scale(0.85); /* Card da esquerda com um efeito de perspectiva */
+    opacity: 0.6;
+  }
+
+  .card.right {
+    transform: rotateY(-25deg) scale(0.85); /* Card da direita com um efeito de perspectiva */
+    opacity: 0.6;
+  }
+
+  /* Remove transform rotateY no mobile */
+  .card.left,
+  .card.right {
+    transform: none !important;
+  }
+}
+
+/* --- Efeito de toque no mobile (escurece e destaca) --- */
+@media (max-width: 768px) {
+  .card:active:not(.active) {
+    filter: brightness(0.8);
+    transition: filter 0.2s ease;
+  }
+}
+.card.touched {
+  filter: brightness(0.8);
+}
+
+
 
 /* Seção Nosso Time */
 #nosso-time {
@@ -510,6 +738,28 @@ header {
         width: 100%;
       }
 }
+
+/* === Efeitos ao passar o mouse nos cards (desktop) === */
+@media (min-width: 769px) {
+  .card-container.hovered .card:not(.hover-target) {
+    filter: blur(3px);
+    transform: scale(0.9) translateZ(-30px);
+    z-index: 1;
+    transition: transform 0.4s ease, filter 0.4s ease, z-index 0.4s;
+  }
+
+  .card.hover-target {
+    transform: scale(1.15) translateZ(30px);
+    z-index: 20;
+    box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, z-index 0.4s;
+  }
+}
+
+
+
+
+
 
 
 /* Seção Sobre Nós */
