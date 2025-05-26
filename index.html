@@ -56,138 +56,38 @@
     </section>
 
 
-<section id="servicos">
-  <h2>Nossos Serviços</h2>
-  <div class="carousel">
-    <div class="card-container">
 
-      <!-- CARD: Aplicativos Mobile -->
-      <div class="card active" onclick="expandCard(this)">
-        <div class="card-inner">
-          <div class="card-front">
+    <section id="servicos">
+      <h2>Nossos Serviços</h2>
+      <div class="carousel">
+        <div class="card-container">
+          <div class="card active">
             <div class="card-image" style="background-image: url('/imgs/img-Servicos-1.png');"></div>
             <div class="content">
               <h3>📱 Aplicativos Mobile</h3>
-              <button onclick="abrirProjeto('app'); event.stopPropagation();">Fazer Orçamento</button>
-              <button class="orcamento-btn" onclick="event.stopPropagation();">Ver Projetos</button>
+              <button onclick="window.open('https://forms.gle/oaq2rbhYQb7Ud14N8', '_blank')">Fazer Orçamento</button>
+              <button class="orcamento-btn">Ver Projetos</button> <!-- NOVO -->
             </div>
           </div>
-          <div class="card-back">
-            <span class="close-btn" onclick="fecharCard(event)">✖</span>
-            <div class="card-back-content">
-              <div class="info-box">
-                <h3>📱 Aplicativos Mobile</h3>
-                <p>Leve sua ideia para o bolso dos clientes com um app moderno e funcional! Desenvolvemos aplicativos para Android e iOS.</p>
-              </div>
-              <div class="projects-box">
-                <h4>Alguns projetos realizados:</h4>
-                <div class="projects-gallery">
-                  <div class="project-box">
-                    <img src="/imgs/projeto-app1.jpg" alt="App Projeto 1">
-                    <p>Aplicativo de Saúde</p>
-                    <a href="/projetos/app" class="ver-mais" target="_blank">Ver mais</a>
-                  </div>
-                  <div class="project-box">
-                    <img src="/imgs/projeto-app2.jpg" alt="App Projeto 2">
-                    <p>Aplicativo de Delivery</p>
-                    <a href="/projetos/app" class="ver-mais" target="_blank">Ver mais</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="quote-button">
-              <button onclick="abrirProjeto('app')">Solicite um orçamento</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD: Criação de Sites -->
-      <div class="card left" onclick="expandCard(this)">
-        <div class="card-inner">
-          <div class="card-front">
+          <div class="card left">
             <div class="card-image" style="background-image: url('/imgs/img-Servicos-22.png');"></div>
             <div class="content">
               <h3>🌐 Criação de Sites</h3>
-              <button onclick="abrirProjeto('site'); event.stopPropagation();">Fazer Orçamento</button>
-              <button class="orcamento-btn" onclick="event.stopPropagation();">Ver Projetos</button>
+              <button onclick="window.open('https://forms.gle/MNkjqASjju4rmbPEA')">Fazer Orçamento</button>
+              <button class="orcamento-btn">Ver Projetos</button> <!-- NOVO -->
             </div>
           </div>
-          <div class="card-back">
-            <span class="close-btn" onclick="fecharCard(event)">✖</span>
-            <div class="card-back-content">
-              <div class="info-box">
-                <h3>🌐 Criação de Sites</h3>
-                <p>Destaque-se online com um site incrível e personalizado! Ideal para mostrar sua marca com estilo e eficiência.</p>
-              </div>
-              <div class="projects-box">
-                <h4>Alguns projetos realizados:</h4>
-                <div class="projects-gallery">
-                  <div class="project-box">
-                    <img src="/imgs/projeto-site1.jpg" alt="Site Projeto 1">
-                    <p>Site para Restaurante</p>
-                    <a href="/projetos/site" class="ver-mais" target="_blank">Ver mais</a>
-                  </div>
-                  <div class="project-box">
-                    <img src="/imgs/projeto-site2.jpg" alt="Site Projeto 2">
-                    <p>Site Institucional</p>
-                    <a href="/projetos/site" class="ver-mais" target="_blank">Ver mais</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="quote-button">
-              <button onclick="abrirProjeto('site')">Solicite um orçamento</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD: Tráfego Pago -->
-      <div class="card right" onclick="expandCard(this)">
-        <div class="card-inner">
-          <div class="card-front">
+          <div class="card right">
             <div class="card-image" style="background-image: url('/imgs/img-Servicos-3.png');"></div>
             <div class="content">
               <h3>📢 Tráfego Pago</h3>
-              <button onclick="abrirProjeto('trafego'); event.stopPropagation();">Fazer Orçamento</button>
-              <button class="orcamento-btn" onclick="event.stopPropagation();">Ver Projetos</button>
-            </div>
-          </div>
-          <div class="card-back">
-            <span class="close-btn" onclick="fecharCard(event)">✖</span>
-            <div class="card-back-content">
-              <div class="info-box">
-                <h3>📢 Tráfego Pago</h3>
-                <p>Apareça para as pessoas certas e aumente suas vendas! Campanhas no Google e redes sociais com alta conversão.</p>
-              </div>
-              <div class="projects-box">
-                <h4>Alguns projetos realizados:</h4>
-                <div class="projects-gallery">
-                  <div class="project-box">
-                    <img src="imgs/gfghgfgf.png" alt="Ads Projeto 1">
-                    <p>Campanha de Vendas - E-commerce</p>
-                    <a href="/projetos/trafego" class="ver-mais" target="_blank">Ver mais</a>
-                  </div>
-                  <div class="project-box">
-                    <img src="/imgs/projeto-ads2.jpg" alt="Ads Projeto 2">
-                    <p>Campanha no Facebook</p>
-                    <a href="/projetos/trafego" class="ver-mais" target="_blank">Ver mais</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="quote-button">
-              <button onclick="abrirProjeto('trafego')">Solicite um orçamento</button>
+              <button onclick="window.open('https://forms.gle/DMpF1VgyHM589nQn8')">Fazer Orçamento</button>
+              <button class="orcamento-btn">Ver Projetos</button> <!-- NOVO -->
             </div>
           </div>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
+    </section>
 
 
 
