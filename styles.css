@@ -431,6 +431,7 @@ nav ul li a:hover::after {
 #servicos h2 {
   font-size: 55px;
   margin-bottom: 60px;
+  margin-top: 40px;
 }
 
 .carousel {
@@ -577,6 +578,12 @@ nav ul li a:hover::after {
     font-size: 15px;
   }
 
+  #servicos h2 {
+  font-size: 44px;
+  margin-bottom: 60px;
+  margin-top: 40px;
+}
+
   #servicos h3 {
     font-size: 20px;
   }
@@ -641,6 +648,27 @@ nav ul li a:hover::after {
   }
 }
 
+
+/* === Efeitos ao passar o mouse nos cards (desktop) === */
+@media (min-width: 769px) {
+  .card-container.hovered .card:not(.hover-target) {
+    filter: blur(3px);
+    transform: scale(0.9) translateZ(-30px);
+    z-index: 1;
+    transition: transform 0.4s ease, filter 0.4s ease, z-index 0.4s;
+  }
+
+  .card.hover-target {
+    transform: scale(1.15) translateZ(30px);
+    z-index: 20;
+    box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, z-index 0.4s;
+  }
+}
+
+
+
+
 .card.touched {
   filter: brightness(0.8);
 }
@@ -691,222 +719,110 @@ nav ul li a:hover::after {
 
 
 
-
-
 /* -----------------  Seção Nosso Time -------------------- */
 
 #nosso-time {
   text-align: center;
-  padding: 80px 20px;
+  padding: 90px 20px;
   background: linear-gradient(to bottom, #19233b 0%, #1a2742 50%, #aec6ec 100%);
 }
 
 .titulo-time {
-  font-size: 50px;
+  font-size: 44px;
   color: white;
-  margin-bottom: 50px;
-}
-
-.team-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-}
-
-.member-card {
-  background-color: #ffffff10;
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 30px 20px;
-  width: 280px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  color: white;
-  margin: 5px 5px;
-}
-
-.member-card:hover {
-  transform: translateY(-10px);
-}
-
-.member-card img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  margin-bottom: 15px;
-}
-
-.member-card h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-  color: #92fffb;
-}
-
-.member-card h2 {
-  font-size: 25px;
-  margin-bottom: 5px;
-  color: #00d4ff;
-}
-
-.member-card p {
-  font-size: 0.9em;
-  line-height: 1.5;
-}
-
-#member-card-cofundador {
-  width: 280px;
+  margin-bottom: 60px;
 }
 
 .linha-cima {
   display: flex;
   justify-content: center;
-  gap: 80px;
   flex-wrap: wrap;
+  gap: 50px;
 }
 
-.linha-baixo {
+.member-container {
+  position: relative;
+  width: 250px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-photo {
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 10px; /* quadrada */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.member-info {
+  background-color: white;
+  padding: 15px;
+  text-align: center;
+  margin-top: -60px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  position: relative;
+  width: 85%;
+}
+
+.member-info h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.member-info h3 {
+  font-size: 16px;
+  color: #00c8ff;
+  margin: 5px 0;
+}
+
+.member-info p {
+  font-size: 14px;
+  color: #444;
+  margin: 10px 0;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  color: #666;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #000;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  margin-top: -230px;
-  width: 100%;
+  width: 35px;
+  height: 35px;
+  margin: 0 5px;
+  background-color: #f0f0f0;
+  color: #444;
+  border-radius: 50%; /* Deixa os ícones redondos */
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-.logo-card {
-  background: none;
-  box-shadow: none;
-  padding: 0;
+.social-icons a:hover {
+  background-color: #00c8ff;
+  color: white;
 }
 
-.logo-card img {
-  width: 180px;
-  height: 180px;
-  border: none;
-}
-
-/* Animações */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
-
-.delay-1 {
-  animation-delay: 0.3s;
-}
-
-.delay-2 {
-  animation-delay: 0.6s;
-}
-
-.delay-3 {
-  animation-delay: 0.9s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsivo */
-@media (max-width: 990px) {
-  .team-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-  }
-
-  .linha-cima,
-  .linha-baixo {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-top: 0;
-    width: 100%;
-  }
-
-  .member-card {
-    width: 100%;
-    max-width: 330px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  .logo-mobile-hide {
-    display: none;
-  }
-
-  .titulo-time {
-    font-size: 50px;
-    margin-bottom: 30px;
-  }
-
-  .member-card img {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 10px;
-  }
-
-  .member-card h2 {
-    font-size: 22px;
-  }
-
-  .member-card h3 {
-    font-size: 16px;
-  }
-
-  .member-card p {
-    font-size: 0.9em;
-  }
-}
-
-
-@media (max-width:1069px) {
-  .team-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .member-card {
-    width: 90%;
-  }
-
-  .linha-baixo {
-    display: flex;
-    justify-content: center;
-    margin-top: 0px;
-    width: 100%;
-  }
-}
-
-
-/*  CARROSSEL DO TIME  */
-
-
-
-
-/* === Efeitos ao passar o mouse nos cards (desktop) === */
-@media (min-width: 769px) {
-  .card-container.hovered .card:not(.hover-target) {
-    filter: blur(3px);
-    transform: scale(0.9) translateZ(-30px);
-    z-index: 1;
-    transition: transform 0.4s ease, filter 0.4s ease, z-index 0.4s;
-  }
-
-  .card.hover-target {
-    transform: scale(1.15) translateZ(30px);
-    z-index: 20;
-    box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, z-index 0.4s;
-  }
-}
 
 
 
