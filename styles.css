@@ -19,8 +19,12 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+}
+
+body, html {
   overflow-x: hidden;
 }
+
 
 /* Cabeçalho */
 header {
@@ -244,7 +248,7 @@ nav ul li a:hover::after {
 
 
 
-/* HOME */
+/* ===================== HOME  ===================== */
 .home {
   margin-top: 150px;
   position: relative;
@@ -579,7 +583,7 @@ nav ul li a:hover::after {
   }
 
   #servicos h2 {
-  font-size: 44px;
+  font-size: 55px;
   margin-bottom: 60px;
   margin-top: 40px;
 }
@@ -718,7 +722,7 @@ nav ul li a:hover::after {
 
 
 
-
+/* -----------------  Seção Nosso Time -------------------- */
 /* -----------------  Seção Nosso Time -------------------- */
 
 #nosso-time {
@@ -728,7 +732,7 @@ nav ul li a:hover::after {
 }
 
 .titulo-time {
-  font-size: 44px;
+  font-size: 50px;
   color: white;
   margin-bottom: 60px;
 }
@@ -752,7 +756,7 @@ nav ul li a:hover::after {
   width: 230px;
   height: 230px;
   object-fit: cover;
-  border-radius: 10px; /* quadrada */
+  border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
@@ -792,17 +796,6 @@ nav ul li a:hover::after {
 }
 
 .social-icons a {
-  margin: 0 8px;
-  color: #666;
-  font-size: 18px;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #000;
-}
-
-.social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -811,7 +804,7 @@ nav ul li a:hover::after {
   margin: 0 5px;
   background-color: #f0f0f0;
   color: #444;
-  border-radius: 50%; /* Deixa os ícones redondos */
+  border-radius: 50%;
   font-size: 18px;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
@@ -821,6 +814,184 @@ nav ul li a:hover::after {
 .social-icons a:hover {
   background-color: #00c8ff;
   color: white;
+}
+
+/* PARÁGRAFO E ESTATÍSTICAS */
+
+.descricao-time {
+  font-size: 18px;
+  color: #ddd;
+  margin: -40px auto 60px;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.estatisticas-time {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 70px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+  color: white;
+}
+
+.stat h3 {
+  font-size: 40px;
+  color: #00c8ff;
+  margin-bottom: 5px;
+}
+
+.stat p {
+  font-size: 16px;
+  color: #f0f0f0;
+}
+
+/* ----------------- Animações -------------------- */
+
+.animate {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.fade-up {
+  transform: translateY(30px);
+}
+
+.fade-down {
+  transform: translateY(-30px);
+}
+
+.fade-left {
+  transform: translateX(-30px);
+}
+
+.fade-right {
+  transform: translateX(30px);
+}
+
+/* Animações personalizadas por membro */
+
+.animate-foto-gabriel {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 0.8s ease;
+}
+
+.animate-caixa-gabriel {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 0.8s ease 0.3s;
+}
+
+.animate-foto-fabricio {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s ease;
+}
+
+.animate-caixa-fabricio {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s ease 0.3s;
+}
+
+.animate-foto-lucas {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s ease;
+}
+
+.animate-caixa-lucas {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s ease 0.3s;
+}
+
+.animate-foto-gabriel.visible,
+.animate-caixa-gabriel.visible,
+.animate-foto-fabricio.visible,
+.animate-caixa-fabricio.visible,
+.animate-foto-lucas.visible,
+.animate-caixa-lucas.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ----------------- Responsivo -------------------- */
+
+@media (max-width: 768px) {
+  .titulo-time {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .descricao-time {
+    font-size: 16px;
+    margin: -20px auto 40px;
+    padding: 0 15px;
+  }
+
+  .linha-cima {
+    gap: 30px;
+  }
+
+  .member-container {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .member-photo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .member-info {
+    width: 90%;
+    padding: 12px;
+  }
+
+  .member-info h2 {
+    font-size: 18px;
+  }
+
+  .member-info h3 {
+    font-size: 14px;
+  }
+
+  .member-info p {
+    font-size: 13px;
+  }
+
+  .social-icons a {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    margin: 0 4px;
+  }
+
+  .estatisticas-time {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .stat h3 {
+    font-size: 32px;
+  }
+
+  .stat p {
+    font-size: 15px;
+  }
 }
 
 
