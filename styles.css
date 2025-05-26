@@ -590,8 +590,52 @@ nav ul li a::after {
 }
 
 
+/* Mensagem sobre botão VER PROJETOS */
+#mensagem-projetos {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #132a3e; /* Mesma vibe do fundo dos cards */
+  color: #ffffff; /* Texto branco para contraste */
+  padding: 30px 40px;
+  border: 2px solid #00d9ff; /* Ciano do botão */
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 217, 255, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+  max-width: 90%;
+  width: fit-content;
+  backdrop-filter: blur(8px);
+}
 
-/* Seção Nosso Time */
+#mensagem-projetos.mostrar {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  #mensagem-projetos {
+    font-size: 16px;
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+}
+
+
+
+
+
+
+/* -----------------  Seção Nosso Time -------------------- */
+
 #nosso-time {
     text-align: center;
     padding: 80px 20px;

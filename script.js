@@ -1,12 +1,12 @@
 /*home - Imagens de fundo */
 document.addEventListener("DOMContentLoaded", () => {
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        document.querySelectorAll('.background-images img').forEach((img, index) => {
-            const speed = (index + 1) * 0.2;
-            img.style.transform = `translateY(${-scrollY * speed}px)`;
-        });
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    document.querySelectorAll('.background-images img').forEach((img, index) => {
+      const speed = (index + 1) * 0.2;
+      img.style.transform = `translateY(${-scrollY * speed}px)`;
     });
+  });
 });
 
 
@@ -23,35 +23,35 @@ document.addEventListener("DOMContentLoaded", () => {
     w.el.classList.remove("typing-active");
   });
 
-function typeWord(index) {
-  const { el, text } = words[index];
-  let charIndex = 0;
+  function typeWord(index) {
+    const { el, text } = words[index];
+    let charIndex = 0;
 
-  // Apenas limpa a palavra atual
-  el.textContent = "";
-  el.classList.remove("typing-active", "finished");
-  el.classList.add("typing-active");
+    // Apenas limpa a palavra atual
+    el.textContent = "";
+    el.classList.remove("typing-active", "finished");
+    el.classList.add("typing-active");
 
-  const typing = setInterval(() => {
-    if (charIndex === text.length) {
-      clearInterval(typing);
-      el.classList.remove("typing-active");
-      el.classList.add("finished");
+    const typing = setInterval(() => {
+      if (charIndex === text.length) {
+        clearInterval(typing);
+        el.classList.remove("typing-active");
+        el.classList.add("finished");
 
-      // Iniciar próxima palavra se existir
-      if (index + 1 < words.length) {
-        setTimeout(() => {
-          typeWord(index + 1);
-        }, 140);
+        // Iniciar próxima palavra se existir
+        if (index + 1 < words.length) {
+          setTimeout(() => {
+            typeWord(index + 1);
+          }, 140);
+        }
+
+        return;
       }
 
-      return;
-    }
-
-    el.textContent += text[charIndex];
-    charIndex++;
-  }, 140);
-}
+      el.textContent += text[charIndex];
+      charIndex++;
+    }, 140);
+  }
   typeWord(0); // Inicia
 });
 
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCards(); // Inicializa a atualização dos cards ao carregar a página
 
-    // Destaque temporário no card tocado no mobile
+  // Destaque temporário no card tocado no mobile
   cards.forEach((card, index) => {
     card.addEventListener("touchstart", () => {
       if (index !== activeIndex) {
@@ -131,24 +131,38 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // === Hover com destaque e desfoque nos cards (apenas desktop) ===
-if (window.innerWidth > 768) {
-  const container = document.querySelector('.card-container');
-  const cards = document.querySelectorAll('.card');
+  if (window.innerWidth > 768) {
+    const container = document.querySelector('.card-container');
+    const cards = document.querySelectorAll('.card');
 
-  cards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      container.classList.add('hovered');
-      card.classList.add('hover-target');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        container.classList.add('hovered');
+        card.classList.add('hover-target');
+      });
+
+      card.addEventListener('mouseleave', () => {
+        container.classList.remove('hovered');
+        card.classList.remove('hover-target');
+      });
     });
-
-    card.addEventListener('mouseleave', () => {
-      container.classList.remove('hovered');
-      card.classList.remove('hover-target');
-    });
-  });
-}
-
-
+  }
 
 });
 
+  
+// === Botão VER PROJETOS ===//
+
+  function mostrarMensagemProjetos() {
+    const mensagem = document.getElementById("mensagem-projetos");
+    mensagem.classList.add("mostrar");
+
+    setTimeout(() => {
+      mensagem.classList.remove("mostrar");
+    }, 4000);
+  }
+
+  // Associa ao botão
+  document.querySelectorAll('.orcamento-btn').forEach(btn => {
+    btn.addEventListener('click', mostrarMensagemProjetos);
+  });
