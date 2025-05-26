@@ -166,3 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.orcamento-btn').forEach(btn => {
     btn.addEventListener('click', mostrarMensagemProjetos);
   });
+
+
+  // === NOSSO TIME ===//
+
+
+
+
