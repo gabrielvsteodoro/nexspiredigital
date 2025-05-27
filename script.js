@@ -335,9 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
-// ============== Tecnologia ================== //
+// ============== Tecnologia ================= //
 
 document.addEventListener('DOMContentLoaded', () => {
   const secaoTecnologia = document.querySelector('.tecnologia');

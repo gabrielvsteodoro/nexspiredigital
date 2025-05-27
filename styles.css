@@ -1018,7 +1018,7 @@ nav ul li a:hover::after {
 
 
 
-/* ================= Seção Sobre Nós ================  */
+/* ================= Seção Sobre Nós =================  */
 
 #sobre-nos {
   background-color: #141d2f;
@@ -1237,28 +1237,28 @@ nav ul li a:hover::after {
 
 .tecnologia.animate h2 {
   animation-name: fadeSlideDown;
-  animation-delay: 0.2s;
+  animation-delay: 0.4s;
 }
 
 .tecnologia.animate .subtitulo {
   animation-name: fadeSlideRight;
-  animation-delay: 0.8s;
+  animation-delay: 0.6s;
 }
 
 .tecnologia.animate hr {
   animation-name: fadeScaleX;
-  animation-delay: 1.4s;
+  animation-delay: 1.2s;
   transform-origin: left;
 }
 
 .tecnologia.animate .texto p:nth-child(1) {
   animation-name: fadeSlideLeft;
-  animation-delay: 2.0s;
+  animation-delay: 1.6s;
 }
 
 .tecnologia.animate .texto p:nth-child(2) {
   animation-name: fadeSlideLeft;
-  animation-delay: 2.6s;
+  animation-delay: 1.8s;
 }
 
 /* === Keyframes === */
