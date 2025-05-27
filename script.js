@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Define deslocamento inicial fora da tela para cada imagem, vindo de uma direção aleatória
   const initialOffsets = Array.from(images).map(() => {
     const dir = directions[Math.floor(Math.random() * directions.length)];
-    switch(dir) {
+    switch (dir) {
       case 'top': return { x: 0, y: -viewportHeight - 200 };
       case 'left': return { x: -viewportWidth - 200, y: 0 };
       case 'right': return { x: viewportWidth + 200, y: 0 };
@@ -213,22 +213,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-  
+
 // === Botão VER PROJETOS ===//
 
-  function mostrarMensagemProjetos() {
-    const mensagem = document.getElementById("mensagem-projetos");
-    mensagem.classList.add("mostrar");
+function mostrarMensagemProjetos() {
+  const mensagem = document.getElementById("mensagem-projetos");
+  mensagem.classList.add("mostrar");
 
-    setTimeout(() => {
-      mensagem.classList.remove("mostrar");
-    }, 4000);
-  }
+  setTimeout(() => {
+    mensagem.classList.remove("mostrar");
+  }, 4000);
+}
 
-  // Associa ao botão
-  document.querySelectorAll('.orcamento-btn').forEach(btn => {
-    btn.addEventListener('click', mostrarMensagemProjetos);
-  });
+// Associa ao botão
+document.querySelectorAll('.orcamento-btn').forEach(btn => {
+  btn.addEventListener('click', mostrarMensagemProjetos);
+});
 
 
 // === NOSSO TIME === //
@@ -242,6 +242,15 @@ function animarElementosAoRolar() {
     const topo = el.getBoundingClientRect().top;
     if (topo < limite) {
       el.classList.add('visible');
+
+      // Se for estatística e ainda não animou, inicia o contador
+      if (el.classList.contains('stat') && !el.classList.contains('contado')) {
+        const numeroEl = el.querySelector('h3');
+        if (numeroEl) {
+          animarContador(numeroEl);
+          el.classList.add('contado'); // evita repetir animação
+        }
+      }
     }
   });
 
@@ -271,6 +280,78 @@ function animarElementosAoRolar() {
   });
 }
 
+// === Função para animar o contador numérico === //
+
+function animarContador(elemento) {
+  const textoOriginal = elemento.innerText.trim();
+
+  // Extrai prefixo (ex: "+"), número (ex: "100") e sufixo (ex: "%")
+  const match = textoOriginal.match(/^([^0-9]*)(\d+)([^0-9]*)$/);
+  if (!match) return;
+
+  const prefixo = match[1];         // Tudo antes do número (ex: "+")
+  const valorFinal = parseInt(match[2]); // O número puro (ex: 100)
+  const sufixo = match[3];          // Tudo depois do número (ex: "%")
+
+  let valorAtual = 0;
+  const duracao = 2500; // ms
+  const passos = 60;
+  const incremento = Math.ceil(valorFinal / passos);
+  const intervalo = duracao / passos;
+
+  const contador = setInterval(() => {
+    valorAtual += incremento;
+    if (valorAtual >= valorFinal) {
+      elemento.innerText = `${prefixo}${valorFinal}${sufixo}`;
+      clearInterval(contador);
+    } else {
+      elemento.innerText = `${prefixo}${valorAtual}${sufixo}`;
+    }
+  }, intervalo);
+}
+
+
+// === Eventos === //
 window.addEventListener('scroll', animarElementosAoRolar);
 window.addEventListener('load', animarElementosAoRolar);
 
+
+
+
+// ============== Sobre Nós ================== //
+
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scroll-show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const elements = document.querySelectorAll('.scroll-fade-up, .scroll-fade-right, .scroll-fade-left');
+  elements.forEach(el => observer.observe(el));
+});
+
+
+
+
+// ============== Tecnologia ================== //
+
+document.addEventListener('DOMContentLoaded', () => {
+  const secaoTecnologia = document.querySelector('.tecnologia');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        secaoTecnologia.classList.add('animate');
+        observer.unobserve(secaoTecnologia);
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  observer.observe(secaoTecnologia);
+});

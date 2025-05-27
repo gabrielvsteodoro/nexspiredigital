@@ -21,7 +21,8 @@ body {
   padding: 0;
 }
 
-body, html {
+body,
+html {
   overflow-x: hidden;
 }
 
@@ -583,10 +584,10 @@ nav ul li a:hover::after {
   }
 
   #servicos h2 {
-  font-size: 55px;
-  margin-bottom: 60px;
-  margin-top: 40px;
-}
+    font-size: 42px;
+    margin-bottom: 60px;
+    margin-top: 40px;
+  }
 
   #servicos h3 {
     font-size: 20px;
@@ -723,7 +724,6 @@ nav ul li a:hover::after {
 
 
 /* -----------------  Seção Nosso Time -------------------- */
-/* -----------------  Seção Nosso Time -------------------- */
 
 #nosso-time {
   text-align: center;
@@ -735,6 +735,10 @@ nav ul li a:hover::after {
   font-size: 50px;
   color: white;
   margin-bottom: 60px;
+}
+
+#nosso-time>h2 {
+  font-size: 45px;
 }
 
 .linha-cima {
@@ -926,6 +930,21 @@ nav ul li a:hover::after {
   transform: none;
 }
 
+/* Hover nos membros do time */
+.member-container:hover .member-photo {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 200, 255, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.member-container:hover .member-info {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 200, 255, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+
 /* ----------------- Responsivo -------------------- */
 
 @media (max-width: 768px) {
@@ -999,17 +1018,17 @@ nav ul li a:hover::after {
 
 
 
+/* ================= Seção Sobre Nós ================  */
 
-
-/* Seção Sobre Nós */
 #sobre-nos {
   background-color: #141d2f;
   padding: 60px 20px;
   text-align: center;
+  color: #fff;
 }
 
 #sobre-nos h2 {
-  font-size: 2.5em;
+  font-size: 45px;
   margin-bottom: 40px;
   color: #ffffff;
 }
@@ -1067,11 +1086,19 @@ nav ul li a:hover::after {
 #sobre-nos .images {
   display: flex;
   flex-direction: column;
+  /* imagens lado a lado */
   gap: 20px;
+  justify-content: center;
+  /* centraliza as imagens */
+  flex-wrap: wrap;
+  /* permite quebra em telas menores */
 }
 
 #sobre-nos .images img {
   width: 100px;
+  /* largura base para desktop */
+  max-width: 100%;
+  /* nunca ultrapassa o container */
   height: auto;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.3));
@@ -1080,6 +1107,35 @@ nav ul li a:hover::after {
 #sobre-nos .images img:hover {
   transform: scale(1.05);
 }
+
+/* Animações de entrada via scroll */
+
+.scroll-fade-up,
+.scroll-fade-right,
+.scroll-fade-left {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.scroll-fade-up {
+  transform: translateY(40px);
+}
+
+.scroll-fade-right {
+  transform: translateX(40px);
+}
+
+.scroll-fade-left {
+  transform: translateX(-40px);
+}
+
+.scroll-show {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Responsivo */
 
 @media (max-width: 768px) {
   #sobre-nos .content {
@@ -1090,9 +1146,32 @@ nav ul li a:hover::after {
   #sobre-nos .text {
     text-align: center;
   }
+
+  #sobre-nos .images img {
+    display: none;
+    width: 120px;
+    /* menor em tablets */
+  }
 }
 
-/* Tecnologia */
+@media (max-width: 480px) {
+  #sobre-nos .images {
+    justify-content: center;
+  }
+
+  #sobre-nos .images img {
+    display: none;
+    width: 90px;
+    /* ainda menor em celulares */
+    margin: 0 auto;
+  }
+}
+
+
+
+
+
+/* ================ Tecnologia =============== */
 
 .tecnologia {
   background-color: #0d1320;
@@ -1139,7 +1218,98 @@ nav ul li a:hover::after {
   font-size: 1.05em;
 }
 
-/* Botão WhatsApp*/
+/* Inicialmente invisíveis e deslocados */
+
+.tecnologia h2,
+.tecnologia .subtitulo,
+.tecnologia hr,
+.tecnologia .texto p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation-fill-mode: forwards;
+  animation-duration: 600ms;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  will-change: opacity, transform;
+}
+
+/* Animações ativadas com a classe .animate */
+
+.tecnologia.animate h2 {
+  animation-name: fadeSlideDown;
+  animation-delay: 0.2s;
+}
+
+.tecnologia.animate .subtitulo {
+  animation-name: fadeSlideRight;
+  animation-delay: 0.8s;
+}
+
+.tecnologia.animate hr {
+  animation-name: fadeScaleX;
+  animation-delay: 1.4s;
+  transform-origin: left;
+}
+
+.tecnologia.animate .texto p:nth-child(1) {
+  animation-name: fadeSlideLeft;
+  animation-delay: 2.0s;
+}
+
+.tecnologia.animate .texto p:nth-child(2) {
+  animation-name: fadeSlideLeft;
+  animation-delay: 2.6s;
+}
+
+/* === Keyframes === */
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeScaleX {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+/* ================== Botão WhatsApp ==================*/
 
 .whatsapp-wrapper {
   position: fixed;
