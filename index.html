@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Nexspire Digital">
+  <meta name="google-site-verification" content="2xL0bbcwCSnfhkgGNrPj1hgoTI7EClAYEmAIvdshU6k" />
+  <title>Nexspire Digital</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="img" href="/imgs/Logo-Redondo-IMAGEM2.png">
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="#home">
+        <img src="/imgs/Logo-Redondo.gif" alt="Nexspire Digital">
+      </a>
+      Nexspire Digital
+    </div>
+
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#home" onclick="document.getElementById('menu-toggle').checked = false">Início</a></li>
+        <li><a href="#servicos" onclick="document.getElementById('menu-toggle').checked = false">Serviços</a></li>
+        <li><a href="#nosso-time" onclick="document.getElementById('menu-toggle').checked = false">Equipe</a></li>
+        <li><a href="#sobre-nos" onclick="document.getElementById('menu-toggle').checked = false">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="home">
+      <h1 class="fade-in delay-1">Bem-vindo à</h1>
+
+      <h1 class="brand-name fade-in delay-2 typing">
+        <span id="word1" class="word"></span> <span id="word2" class="word"></span>
+      </h1>
+
+      <p class="fade-in delay-3">Inovamos com tecnologia para transformar ideias em soluções digitais reais.</p>
+      <a href="#servicos" class="btn fade-in delay-4">Conheça nossos serviços</a>
+
+      <div class="background-images">
+        <img src="/imgs/home-tech-girl.png" style="top: 10%; left: 5%;">
+        <img src="/imgs/lampada-tech.png" style="top: 25%; right: 10%;">
+        <img src="/imgs/brain-tech.png" style="bottom: 5%; left: 12%;">
+        <img src="/imgs/computer-girl.png" style="bottom: -5%; right: 5%;">
+
+        <img src="/imgs/digitalDedo.png" style="top: 20%; left: 30%;">
+        <img src="/imgs/roboMao.png" style="top: 0%; right: 30%;">
+        <img src="/imgs/mocatech.png" style="bottom: 25%; left: 25%;">
+        <img src="/imgs/cpuTech.png" style="bottom: 5%; right: 25%;">
+      </div>
+    </section>
+
+
+
+    <section id="servicos">
+      <div id="mensagem-projetos" class="mensagem-oculta">
+        🔧 Em breve você poderá ver nossos projetos aqui! Estamos preparando tudo com muito carinho. 😊
+      </div>
+      <h2>Nossos Serviços</h2>
+      <div class="carousel">
+        <div class="card-container">
+          <div class="card active">
+            <div class="card-image" style="background-image: url('/imgs/img-Servicos-1.png');"></div>
+            <div class="content">
+              <h3>📱 Aplicativos Mobile</h3>
+              <button onclick="window.open('https://forms.gle/oaq2rbhYQb7Ud14N8', '_blank')">Fazer Orçamento</button>
+              <button class="orcamento-btn" onclick="mostrarMensagemProjetos()">Ver Projetos</button>
+            </div>
+          </div>
+          <div class="card left">
+            <div class="card-image" style="background-image: url('/imgs/img-Servicos-22.png');"></div>
+            <div class="content">
+              <h3>🌐 Criação de Sites</h3>
+              <button onclick="window.open('https://forms.gle/MNkjqASjju4rmbPEA')">Fazer Orçamento</button>
+              <button class="orcamento-btn" onclick="mostrarMensagemProjetos()">Ver Projetos</button>
+
+            </div>
+          </div>
+          <div class="card right">
+            <div class="card-image" style="background-image: url('/imgs/img-Servicos-3.png');"></div>
+            <div class="content">
+              <h3>📢 Tráfego Pago</h3>
+              <button onclick="window.open('https://forms.gle/DMpF1VgyHM589nQn8')">Fazer Orçamento</button>
+              <button class="orcamento-btn" onclick="mostrarMensagemProjetos()">Ver Projetos</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section id="nosso-time">
+  <h2 class="titulo-time animate fade-down">Nosso Time</h2>
+
+  <p class="descricao-time animate fade-up">
+    Conheça as mentes por trás da Nexspire Digital. Somos um time apaixonado por inovação, estratégia e resultados reais.
+  </p>
+
+  <div class="linha-cima">
+    <!-- Membro 1 - Gabriel -->
+    <div class="member-container">
+      <img src="/imgs/Minha-Foto2.jpeg" alt="Gabriel Teodoro" class="member-photo animate-foto-gabriel">
+      <div class="member-info animate-caixa-gabriel">
+        <h2>Gabriel Teodoro</h2>
+        <h3>Fundador</h3>
+        <p>Trago criatividade e expertise técnica para impulsionar nossos projetos.</p>
+        <div class="social-icons">
+          <a href="mailto:gabrielvs.teodoro@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/gabrielvsteodoro/" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/gvictorteo/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Membro 2 - Fabrício -->
+    <div class="member-container">
+      <img src="/imgs/Foto-Fabricio.jpeg" alt="Fabrício Gean" class="member-photo animate-foto-fabricio">
+      <div class="member-info animate-caixa-fabricio">
+        <h2>Fabrício Gean</h2>
+        <h3>Fundador</h3>
+        <p>Com visão estratégica e espírito inovador, transforma tendências em soluções.</p>
+        <div class="social-icons">
+          <a href="mailto:fabriciogeamsilva@hotmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/FabrGean" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/fabricio-gean-pereira-da-silva-777230155/" target="_blank">
+            <i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Membro 3 - Lucas  -->
+    <div class="member-container">
+      <img src="/imgs/Foto-lucas.jpeg" alt="Lucas Cardozo" class="member-photo animate-foto-lucas">
+      <div class="member-info animate-caixa-lucas">
+        <h2>Lucas Cardozo</h2>
+        <h3>Cofundador</h3>
+        <p>Atuo com estratégias de tráfego e SEO para acelerar o crescimento dos nossos clientes.</p>
+        <div class="social-icons">
+          <a href="mailto:Lucascardozo.mkt@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.instagram.com/lucas_cardz/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/lucas-cardozo-meneguello-0978a635b/" target="_blank">
+            <i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="estatisticas-time">
+    <div class="stat animate fade-up" style="animation-delay: 0s;">
+      <h3>+80</h3>
+      <p>Clientes Atendidos</p>
+    </div>
+    <div class="stat animate fade-up" style="animation-delay: 0.2s;">
+      <h3>+50</h3>
+      <p>Projetos Concluídos</p>
+    </div>
+    <div class="stat animate fade-up" style="animation-delay: 0.4s;">
+      <h3>+100%</h3>
+      <p>Média de Crescimento</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="sobre-nos" class="sobre-nos">
+  <div class="container">
+    <h2 class="scroll-fade-up">Sobre Nós</h2>
+    <div class="content">
+      <div class="logo scroll-fade-up">
+        <img src="/imgs/Logo-Quadrada.gif" alt="Logo Nexspire Digital">
+      </div>
+      <div class="text scroll-fade-right">
+        <h3>Quem Somos</h3>
+        <p>
+          Aqui na <strong>Nexspire Digital</strong>, somos uma equipe apaixonada por criar soluções digitais que
+          fazem a diferença. Especializados no desenvolvimento de sites e aplicativos, também oferecemos estratégias
+          eficientes em <strong>Google Ads</strong> e <strong>Meta Ads</strong>, ajudando sua marca a se destacar.
+          Nosso compromisso é transformar suas ideias em resultados reais. Vamos juntos levar seu negócio para o
+          próximo nível!
+        </p>
+        <button class="saiba-mais"
+          onclick="window.open('https://wa.me/5511912144079?text=Olá!%20Tenho%20interesse%20nos%20serviços%20da%20Nexspire%20Digital.', '_blank')">
+          Saiba Mais
+        </button>
+      </div>
+      <div class="images">
+        <img src="/imgs/garoto-tech.png" alt="Imagem Tecnológica" class="scroll-fade-left">
+        <img src="/imgs/homem-tech.png" alt="Imagem Tecnológica" class="scroll-fade-left">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="tecnologia" class="tecnologia">
+  <div class="container">
+    <h2 class="title">Tecnologia</h2>
+    <p class="subtitulo">Tecnologia e Inovação: A Chave para o Sucesso Empresarial</p>
+    <hr>
+    <div class="texto">
+      <p>
+        A presença digital é essencial no mundo atual. Ter um site bem projetado e aplicativos funcionais aumenta a
+        visibilidade da sua marca e facilita a interação com os clientes. Estratégias de engajamento, como
+        avaliações no Google, ajudam a construir uma reputação confiável e atrair novos clientes. Com a tecnologia,
+        é possível automatizar processos e personalizar experiências, resultando em maior eficiência e satisfação.
+        Investir em soluções digitais é, portanto, investir no futuro do seu negócio.
+      </p>
+      <p>
+        Além disso, estamos sempre em busca de melhorias e adaptações às novas tendências do mercado. Acreditamos
+        que a inovação contínua é essencial para oferecer soluções que atendam às suas necessidades. Nosso
+        compromisso é acompanhar as novidades tecnológicas, garantindo que seu negócio esteja sempre à frente da
+        concorrência. Sua satisfação é nossa prioridade!
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Botão WhatsApp -->
+    <a href="https://wa.me/5511912144079?text=Olá!%20Tenho%20interesse%20nos%20serviços%20da%20Nexspire%20Digital."
+      class="whatsapp-wrapper" target="_blank" aria-label="Fale com a gente no WhatsApp">
+      <div class="whatsapp-text">Fale com a gente</div>
+      <div class="whatsapp-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+      </div>
+    </a>
+
+  </main>
+  <footer>
+    <div class="footer-container">
+      <p>🚀 Startup de serviços tecnológicos</p>
+      <div class="footer-line"></div>
+      <div class="footer-links">
+        <a href="/documentacoes/doc_info.html#termos" target="_blank">📄 Termos e Condições</a>
+        <a href="/documentacoes/doc_info.html#cookies" target="_blank">🍪 Política de Cookies</a>
+        <a href="/documentacoes/doc_info.html#privacidade" target="_blank">🔒 Política de Privacidade</a>
+      </div>
+      <p class="credit">Site desenvolvido por Gabriel Teodoro - Fundador da Startup</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
